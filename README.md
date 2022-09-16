@@ -141,12 +141,17 @@ docker network create my-project
 
 Talk to bot using shell command
 ```
-docker run -u 1000:1000 -it -v "$(pwd)":/app -p 5005:5005 --net my-project rasa/rasa:3.2.6-full shell
+docker run -u 1000:1000 -it -v $(pwd):/app -p 5005:5005 --net my-project rasa/rasa:3.2.6-full shell
+```
+
+Start up action server
+```
+docker run -u 1000:1000 -d -v $(pwd)/actions:/app/actions --net my-project --name action-server rasa/rasa-sdk:3.2.1
 ```
 
 To run as a server for drupal
 ```
-docker run -u 1000:1000 -it -v "$(pwd)":/app -p "5005:5005" --net my-project rasa/rasa:3.2.6-full run -m models --enable-api --cors "*" --debug
+docker run -u 1000:1000 -it -v $(pwd):/app -p "5005:5005" --net my-project rasa/rasa:3.2.6-full run -m models --enable-api --cors "*" --debug
 ```
 
 ## Docker commands
