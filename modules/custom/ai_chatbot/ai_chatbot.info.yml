@@ -1,0 +1,6 @@
+name: AI Chatbot Module
+description: A module for adding AI Chatbots to Drupal sites.
+type: module
+core_version_requirement: ^8 || ^9
+dependencies:
+  - component:component

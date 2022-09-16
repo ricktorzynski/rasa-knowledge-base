@@ -1,0 +1,10 @@
+name: AI Chatbot Comp Rasa Component
+description: Creating a simple Rasa Chatbot
+template: index.html
+js:
+  js/Chatroom.js: {}
+  js/rasa.js: {}
+css:
+  css/Chatroom.css: {}
+  css/comp_rasa.css: {}
+
