@@ -146,7 +146,7 @@ docker run -u 1000:1000 -it -v "$(pwd)":/app -p 5005:5005 --net my-project rasa/
 
 To run as a server for drupal
 ```
-docker run -u 1000:1000 -it -v "$(pwd)":/app -p "5005:5005" rasa/rasa:3.2.6-full run -m models --enable-api --cors "*" --debug
+docker run -u 1000:1000 -it -v "$(pwd)":/app -p "5005:5005" --net my-project rasa/rasa:3.2.6-full run -m models --enable-api --cors "*" --debug
 ```
 
 ## Docker commands

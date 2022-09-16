@@ -5,6 +5,8 @@ intents:
   - goodbye
   - affirm
   - deny
+  - mood_great
+  - mood_unhappy
   - bot_challenge
   - define
   - creator
@@ -17,11 +19,45 @@ intents:
   - end_of_life_8
   - number_of_sites
   - drupal_logo
+  - add_contact_info
+  - inform
+  - tell_joke
 
 entities:
   - release
+  - user_name
+  - user_email
+
+forms:
+  contact_info_form:
+    required_slots:
+      - user_name
+      - user_email
+
+slots: 
+  user_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: user_name
+  user_email:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: user_email
 
 responses:
+  utter_submit:
+  - text: "I will now add you to our email list."
+  utter_contact_info_slots: 
+  - text: "I will add {user_name} at {user_email} to our list"
+  utter_ask_user_name:
+  - text: "What is your first name?"
+  utter_ask_user_email:
+  - text: "What is your email address?"
+
   utter_greet:
   - text: "Hey!"
   - text: "Hello."
@@ -29,6 +65,12 @@ responses:
 
   utter_goodbye:
   - text: "Bye"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
 
   utter_iamabot:
   - text: "I am Drupal Dropbot, a conversational AI chatbot powered by Rasa."
@@ -55,7 +97,7 @@ responses:
   - text: "Drupal 9 was released on June 3, 2020"
 
   utter_release_10:
-  - text: "Drupal 10 will be released on June or December 2022"
+  - text: "Drupal 10 will be released on December 14th 2022"
 
   utter_end_of_life_7:
   - text: "Drupal 7's end-of-life was scheduled for November 2021, but the end of life has been extended until November 1, 2023."
@@ -74,6 +116,9 @@ responses:
     image: "https://www.drupal.org/files/Wordmark_blue_RGB.png"
   - text: "Here is the Drupal Wordmark:"
     image: "https://www.drupal.org/files/drupal-wordmark.png"    
+
+actions:
+  - action_joke
 
 session_config:
   session_expiration_time: 60

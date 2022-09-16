@@ -11,3 +11,20 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: Activate Contact Info Form
+  steps:
+  - intent: add_contact_info
+  - action: contact_info_form
+  - active_loop: contact_info_form
+  
+- rule: Submit Contact Form
+  condition:
+  - active_loop: contact_info_form
+  steps:
+  - action: contact_info_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit
+  - action: utter_contact_info_slots
