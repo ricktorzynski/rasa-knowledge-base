@@ -1,4 +1,4 @@
-version: "3.1"
+version: "2.0"
 
 nlu:
 - intent: greet
@@ -19,6 +19,7 @@ nlu:
 
 - intent: goodbye
   examples: |
+    - good afternoon
     - cu
     - good by
     - cee you later
@@ -49,43 +50,129 @@ nlu:
     - no way
     - not really
 
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
-
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+    - who are you?
+    - what are you?
+
+- intent: define
+  examples: |
+    - what is drupal?
+    - tell me about drupal?
+    - define drupal
+
+- intent: creator
+  examples: |
+    - who created drupal?
+    - who programmed drupal?
+    - who wrote drupal?
+
+- intent: creation
+  examples: |
+    - when was drupal created?
+    - what year did drupal come out?
+
+- intent: release_7
+  examples: |
+    - when was [drupal7]{"entity": "release"} release released?
+    - what was drupal7 release date?
+    - when did drupal 7 get released?
+    - d7 released?
+
+- intent: release_8
+  examples: |
+    - when was [drupal8]{"entity": "release"} released?
+    - what was drupal8 release date?
+    - when did d8 get released?
+    - when did drupal 8 get released?
+
+- intent: release_9
+  examples: |
+    - when was d9 released?
+    - what was [drupal9]{"entity": "release"} release date?
+    - when did drupal 9 get released?
+    - when was drupal 9 released?
+
+
+- intent: release_10
+  examples: |
+    - when will [drupal10]{"entity": "release"} be released?
+    - what is drupal 10 release date?
+    - when did [drupal10]{"entity": "release"} get released?
+    - when was d10 reeleased?
+    - what was d10 release date?
+
+- intent: end_of_life_7
+  examples: |
+    - what is [drupal7]{"entity": "release"} end of life?
+    - when does [drupal7]{"entity": "release"} become unsupported?
+    - when does [drupal7]{"entity": "release"} reach end of life?
+    - when is the end of life for drupal 9
+
+- intent: end_of_life_8
+  examples: |
+    - what is [drupal8]{"entity": "release"} end of life?
+    - when does [drupal8]{"entity": "release"} become unsupported?
+    - when does [drupal8]{"entity": "release"} reach end of life?
+    - when is the end of life for drupal 8
+
+- intent: number_of_sites
+  examples: |
+    - how many sites use drupal?
+    - how many drupal sites exist?
+    - what is the number of sites that use drupal?
+
+- intent: drupal_logo
+  examples: |
+    - show me the drupal logo
+    - what is the drupal logo
+    - image of the drupal logo
+    - drupal logo image
+
+- lookup: module
+  examples: |
+    - component
+    - paragraphs
+    - pathauto
+    - migrate
+    - json:api
+
+- synonym: drupal7
+  examples: |
+    - d7
+    - drupal 7
+
+- synonym: drupal8
+  examples: |
+    - d8
+    - drupal 8
+
+- synonym: drupal9
+  examples: |
+    - d9
+    - drupal 9
+
+- synonym: drupal10
+  examples: |
+    - d10
+    - drupal 10
+
+- regex: drupal7
+  examples: |
+    - drupal[ ]{0,1}7
+
+- regex: drupal8
+  examples: |
+    - drupal[ ]{0,1}8
+
+- regex: drupal9
+  examples: |
+    - drupal[ ]{0,1}9
+
+- regex: drupal10
+  examples: |
+    - drupal[ ]{0,1}10

@@ -1,30 +1,65 @@
-version: "3.1"
+version: "2.0"
 
 stories:
 
-- story: happy path
+- story: greet
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
 
-- story: sad path 1
+- story: creator
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
+  - intent: creator
+  - action: utter_creator
 
-- story: sad path 2
+- story: define
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
+  - intent: define
+  - action: utter_define
+
+- story: creation
+  steps:
+  - intent: creation
+  - action: utter_creation
+
+- story: drupal 7 release date
+  steps:
+  - intent: release_7
+  - action: utter_release_7
+
+- story: drupal 8 release date
+  steps:
+  - intent: release_8
+  - action: utter_release_8
+
+- story: drupal 9 release date
+  steps:
+  - intent: release_9
+  - action: utter_release_9
+
+- story: drupal 10 release date
+  steps:
+  - intent: release_10
+  - action: utter_release_10
+
+- story: drupal 7 end of life
+  steps:
+  - intent: end_of_life_7
+  - action: utter_end_of_life_7
+
+- story: drupal 8 end of life
+  steps:
+  - intent: end_of_life_8
+  - action: utter_end_of_life_8
+
+- story: number of drupal sites
+  steps:
+  - intent: number_of_sites
+  - action: utter_number_of_sites
+
+- story: drupal logo
+  steps:
+  - intent: drupal_logo
+  - action: utter_drupal_logo
+
+
