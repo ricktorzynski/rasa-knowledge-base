@@ -126,20 +126,20 @@ to get uid: cat /etc/group
 
 This command will get the docker container rasa/rasa and setup initial project
 ```
-$ docker run -u 1000:1000 -v $(pwd):/app rasa/rasa:3.2.6-full init --no-prompt
+docker run -u 1000:1000 -v $(pwd):/app rasa/rasa:3.2.6-full init --no-prompt
 ```
 
 Train your model
 ```
-$ docker run -u 1000:1000 -v $(pwd):/app rasa/rasa:3.2.6-full train
+docker run -u 1000:1000 -v $(pwd):/app rasa/rasa:3.2.6-full train
 ```
 
 Create a network (we will use this later on but needed for shell)
-$ docker network create my-project
+docker network create my-project
 
 Talk to bot using shell command
 ```
-$ docker run -u 1000:1000 -it -v "$(pwd)":/app -p 5005:5005 --net my-project rasa/rasa:3.2.6-full shell
+docker run -u 1000:1000 -it -v "$(pwd)":/app -p 5005:5005 --net my-project rasa/rasa:3.2.6-full shell
 ```
 
 To run as a server for drupal
@@ -151,22 +151,22 @@ docker run -u 1000:1000 -it -v "$(pwd)":/app -p "5005:5005" rasa/rasa:3.2.6-full
 
 Stop the action server
 ```
-$ docker stop action-server
+docker stop action-server
 ```
 
 List running docker containers
 ```
-$ docker ps
+docker ps
 ```
 
 List local docker images
 ```
-$ docker images
+docker images
 ```
 
 Remove local docker image
 ```
-$ docker rm image image-to-remove
+docker rm image image-to-remove
 ```
 
 Stop docker container
