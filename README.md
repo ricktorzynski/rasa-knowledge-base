@@ -135,7 +135,9 @@ docker run -u 1000:1000 -v $(pwd):/app rasa/rasa:3.2.6-full train
 ```
 
 Create a network (we will use this later on but needed for shell)
+```
 docker network create my-project
+```
 
 Talk to bot using shell command
 ```
