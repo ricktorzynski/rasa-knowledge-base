@@ -41,14 +41,13 @@ The **--mount src="/c/Users/Firstname.Lastname/pathtorasa/",dst=/app,type=bind**
 
 To setup Rasa for the first time
 ```
-docker run -u userid:groupid --mount src="/c/Users/Firstname.Lastname/pathtorasa/",dst=/app,type=bind rasa/rasa:3.2.6-full init --no-prompt
+docker run -u 1089705:1049089 --mount src="/c/Users/Firstname.Lastname/pathtorasa/",dst=/app,type=bind rasa/rasa:3.2.6-full init --no-prompt
 ```
 
 To train Rasa 
 ```
-docker run -u userid:groupid --mount src="/c/Users/Firstname.Lastname/pathtorasa/",dst=/app,type=bind rasa/rasa:3.2.6-full train --domain domain.yml --data data --out models
+docker run -u 1089705:1049089 --mount src="/c/Users/Richard.Torzynski/Docker/rasa/",dst=/app,type=bind rasa/rasa:3.2.6-full train --domain domain.yml --data data --out models
 ```
-Ex: docker run -u 1089705:1049089 --mount src="/c/Users/Richard.Torzynski/Docker/rasa/",dst=/app,type=bind rasa/rasa:3.2.6-full train --domain domain.yml --data data --out models
 
 To use Rasa Shell and custom actions, add a new network
 ```
@@ -57,15 +56,13 @@ docker network create my-project
 
 To use Rasa Shell, make sure to add winpty before the command or you'll get an error
 ```
-winpty docker run -u userid:groupid -it --mount src="/c/Users/Firstname.Lastname/pathtorasa/",dst=/app,type=bind -p 5005:5005 --net my-project rasa/rasa:3.2.6-full shell
+$ winpty docker run -u 1089705:1049089 -it --mount src="/c/Users/Richard.Torzynski/Docker/rasa/",dst=/app,type=bind -p 5005:5005 --net my-project rasa/rasa:3.2.6-full shellgit 
 ```
-Ex: winpty docker run -u 1089705:1049089 -it --mount src="/c/Users/Richard.Torzynski/Docker/rasa/",dst=/app,type=bind -p 5005:5005 --net my-project rasa/rasa:3.2.6-full shell
 
 To use custom actions, need to start the Rasa Action Server
 ```
-docker run -u userid:groupid -d --mount src="/c/Users/Firstname.Lastname/Docker/rasa/actions/",dst=/app/actions,type=bind --net my-project --name action-server rasa/rasa-sdk:3.2.0
-```
 docker run -u 1089705:1049089 -d --mount src="/c/Users/Richard.Torzynski/Docker/rasa/actions/",dst=/app/actions,type=bind --net my-project --name action-server rasa/rasa-sdk:3.2.0
+```
 
 ## Docker commands
 
@@ -145,6 +142,10 @@ Talk to bot using shell command
 $ docker run -u 1000:1000 -it -v "$(pwd)":/app -p 5005:5005 --net my-project rasa/rasa:3.2.6-full shell
 ```
 
+To run as a server for drupal
+```
+docker run -u 1000:1000 -it -v "$(pwd)":/app -p "5005:5005" rasa/rasa:3.2.6-full run -m models --enable-api --cors "*" --debug
+```
 
 ## Docker commands
 
